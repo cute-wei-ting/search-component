@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hide{
+            display:none;
+        }
+        span{
+            margin-right: 1rem;
+        }
+    </style>
+</head>
+<body>
+  <h1>關鍵字列表</h1><input class="search" type="text" placeholder="關鍵字"><br>
+  <span class="msg_cotainer"><a href="./${key}.html" class="keyword">你好</a></span>
+
+  <span class="msg_cotainer"><a href="./${key}.html" class="keyword">我是</a></span>
+  <span class="msg_cotainer"><a href="./${key}.html" class="keyword">關鍵字</a></span>
+  <span class="msg_cotainer"><a href="./${key}.html" class="keyword">我是</a></span>
+  <span class="msg_cotainer"><a href="./${key}.html" class="keyword">搜尋</a></span>
+  <span class="msg_cotainer"><a href="./${key}.html" class="keyword">測試</a></span>
+  <span class="msg_cotainer"><a href="./${key}.html" class="keyword">程式碼</a></span><br>
+<script>
+  const searchElement = document.querySelector("input.search");
+  const keyWordLinks = document.querySelectorAll('a.keyword');
+  searchElement.addEventListener('input', (e) => {
+      console.log(e.target.value);
+      let str=e.target.value;
+        keyWordLinks.forEach((el)=>{
+            if(!el.textContent.includes(str)) el.parentNode.classList.add("hide");
+            else el.parentNode.classList.remove("hide");
+        })
+ });
+</script>
+</body>
+</html>
